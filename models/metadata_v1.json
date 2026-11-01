@@ -1,0 +1,46 @@
+{
+  "model_version": "v1",
+  "model_name": "xgboost",
+  "trained_at": "2026-11-01T12:34:15+00:00",
+  "features": [
+    "person_age",
+    "person_income",
+    "person_emp_length",
+    "loan_amnt",
+    "loan_int_rate",
+    "loan_percent_income",
+    "cb_person_cred_hist_length",
+    "person_home_ownership",
+    "loan_intent",
+    "loan_grade",
+    "cb_person_default_on_file"
+  ],
+  "validation_metrics": {
+    "logistic_regression": {
+      "auc": 0.8789,
+      "gini": 0.7579,
+      "pr_auc": 0.7262,
+      "ks": 0.6091,
+      "brier": 0.1367,
+      "train_seconds": 0.2
+    },
+    "random_forest": {
+      "auc": 0.9368,
+      "gini": 0.8736,
+      "pr_auc": 0.8949,
+      "ks": 0.7537,
+      "brier": 0.0587,
+      "train_seconds": 3.3
+    },
+    "xgboost": {
+      "auc": 0.9511,
+      "gini": 0.9022,
+      "pr_auc": 0.9102,
+      "ks": 0.7724,
+      "brier": 0.0507,
+      "train_seconds": 1.2
+    }
+  },
+  "train_rows": 22686,
+  "train_default_rate": 0.2187
+}

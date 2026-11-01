@@ -1,0 +1,17 @@
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+xgboost==3.2.0
+shap==0.51.0
+evidently==0.7.23
+fastapi==0.141.1
+uvicorn==0.46.0
+pydantic==2.13.3
+matplotlib==3.10.9
+seaborn==0.13.2
+joblib==1.5.3
+starlette==1.10.0
+httpx==0.28.1
+pytest==9.2.0
+ipykernel==7.4.0
+nbconvert==7.17.2

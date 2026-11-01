@@ -1,0 +1,13 @@
+{
+  "person_income":0.9229000211,
+  "loan_grade":0.8924000263,
+  "loan_percent_income":0.8273000121,
+  "person_home_ownership":0.6868000031,
+  "loan_intent":0.5583000183,
+  "loan_int_rate":0.2840000093,
+  "loan_amnt":0.2506999969,
+  "person_emp_length":0.1702000052,
+  "person_age":0.1226999983,
+  "cb_person_cred_hist_length":0.0516999997,
+  "cb_person_default_on_file":0.0132999998
+}

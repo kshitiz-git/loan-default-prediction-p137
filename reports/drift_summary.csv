@@ -1,0 +1,13 @@
+feature,psi_normal,status_normal,psi_downturn,status_downturn
+person_age,0.0027,stable,0.0027,stable
+person_income,0.0019,stable,0.1875,watch
+person_emp_length,0.0038,stable,0.0038,stable
+loan_amnt,0.0026,stable,0.0026,stable
+loan_int_rate,0.0024,stable,1.1231,alert
+loan_percent_income,0.002,stable,0.1114,watch
+cb_person_cred_hist_length,0.0025,stable,0.0025,stable
+person_home_ownership,0.0009,stable,0.0009,stable
+loan_intent,0.0013,stable,0.0013,stable
+loan_grade,0.0011,stable,0.0011,stable
+cb_person_default_on_file,0.0008,stable,0.0008,stable
+model_score_PD,0.004,stable,0.1672,watch
