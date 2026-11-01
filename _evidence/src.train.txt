@@ -1,0 +1,5 @@
+PS> .\.venv\Scripts\python.exe -m src.train
+logistic_regression  {'auc': 0.8789, 'gini': 0.7579, 'pr_auc': 0.7262, 'ks': 0.6091, 'brier': 0.1367, 'train_seconds': 0.2}
+random_forest        {'auc': 0.9368, 'gini': 0.8736, 'pr_auc': 0.8949, 'ks': 0.7537, 'brier': 0.0587, 'train_seconds': 3.0}
+xgboost              {'auc': 0.9511, 'gini': 0.9022, 'pr_auc': 0.9102, 'ks': 0.7724, 'brier': 0.0507, 'train_seconds': 2.2}
+Best model: xgboost (val AUC 0.9511) saved to models/

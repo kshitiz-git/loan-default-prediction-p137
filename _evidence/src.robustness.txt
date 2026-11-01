@@ -1,0 +1,7 @@
+PS> .\.venv\Scripts\python.exe -m src.robustness
+Cleaning: 32581 rows -> 32409 rows
+logistic_regression  5-fold AUC mean 0.8707  sd 0.0059  min 0.8597
+random_forest        5-fold AUC mean 0.9336  sd 0.0021  min 0.9310
+xgboost              5-fold AUC mean 0.9497  sd 0.0024  min 0.9456
+XGBoost without loan_grade and loan_int_rate: test AUC 0.9020
+Saved reports/robustness.json

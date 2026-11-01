@@ -1,0 +1,13 @@
+column_name,data_type,sample_value_1,sample_value_2,sample_value_3,nullable,description
+person_age,int,21,25,23,No,Applicant's age in whole years at application time. 20 to 94 after cleaning; the 5 raw rows above 100 (including ages 123 and 144) were removed as data-entry errors. The API accepts 18 to 100.
+person_income,int,9600,9600,65500,No,"Applicant's annual income in the dataset's currency units (whole number, 4,000 to 2,039,784). Strongest single driver of predicted risk (mean |SHAP| 0.92)."
+person_home_ownership,category,OWN,MORTGAGE,RENT,No,"Housing status: RENT, MORTGAGE, OWN or OTHER. Used as a category; renters default more often in this data."
+person_emp_length,float,5.00,1.00,4.00,Yes,"Years in the current job, decimal, 0 to 41 after cleaning (2 raw rows above 60 removed). 887 rows are empty; the model fills them with the training median, so the column is nullable."
+loan_intent,category,EDUCATION,MEDICAL,MEDICAL,No,"Purpose of the loan: EDUCATION, MEDICAL, VENTURE, PERSONAL, DEBTCONSOLIDATION or HOMEIMPROVEMENT. Raw default rate ranges from 14.8% (VENTURE) to 28.6% (DEBTCONSOLIDATION)."
+loan_grade,category,B,C,C,No,Lender's own risk grade from A (best) to G (worst). Raw default rate rises from 10.0% in grade A to 98.4% in grade G. Used as the baseline approval rule in the NPA back-test.
+loan_amnt,int,1000,5500,35000,No,"Loan amount requested, whole number, 500 to 35,000. Used as the weight in the NPA ratio by amount."
+loan_int_rate,float,11.14,12.87,15.23,Yes,"Annual interest rate offered, percent with 2 decimals, 5.42 to 23.22. 3,094 rows are empty (rate not priced yet); the model fills them with the training median, so the column is nullable."
+loan_status,int,0,1,1,No,"Target label: 1 if the loan defaulted, 0 if it was repaid. 7,088 of the 32,409 cleaned rows are 1 (21.9%). This is what the model predicts as a probability of default (PD)."
+loan_percent_income,float,0.10,0.57,0.53,No,"loan_amnt divided by person_income, 2 decimals, 0.00 to 0.83. Highest correlation with default (0.38). The scoring API computes it itself; clients never send it."
+cb_person_default_on_file,category,N,N,N,No,"Y if the credit bureau file shows a past default, N if not."
+cb_person_cred_hist_length,int,2,3,2,No,"Length of the applicant's credit history in whole years, 2 to 30."

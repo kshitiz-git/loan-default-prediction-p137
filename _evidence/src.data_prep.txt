@@ -1,0 +1,5 @@
+PS> .\.venv\Scripts\python.exe -m src.data_prep
+Cleaning: 32581 rows -> 32409 rows
+train: 22686 rows, default rate 0.219
+val: 4861 rows, default rate 0.219
+test: 4862 rows, default rate 0.219

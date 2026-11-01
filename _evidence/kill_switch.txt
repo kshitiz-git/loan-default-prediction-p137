@@ -1,0 +1,36 @@
+### GET /health
+{
+    "status":  "ok",
+    "model_version":  "v1",
+    "kill_switch":  true
+}
+### POST good
+{
+    "application_id":  "2cac4008-cd3c-493a-b48b-06d576161609",
+    "probability_of_default":  0.0953,
+    "risk_band":  "low",
+    "decision":  "REVIEW",
+    "top_reasons":  [
+                        {
+                            "feature":  "person_home_ownership",
+                            "value":  "RENT",
+                            "impact":  0.267,
+                            "text":  "Home ownership status"
+                        },
+                        {
+                            "feature":  "person_income",
+                            "value":  42000.0,
+                            "impact":  0.099,
+                            "text":  "Income is low for the amount requested"
+                        },
+                        {
+                            "feature":  "loan_intent",
+                            "value":  "MEDICAL",
+                            "impact":  0.051,
+                            "text":  "Purpose of the loan"
+                        }
+                    ],
+    "model_version":  "v1",
+    "latency_ms":  37.81
+}
+### stopped

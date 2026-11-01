@@ -1,0 +1,12 @@
+<!doctype html><meta charset='utf-8'><style>body{margin:0;background:#0c0c0c;font-family:'Cascadia Mono','Consolas',monospace}
+.win{display:block;width:1300px;background:#0c0c0c}
+.bar{background:#1f1f1f;color:#ccc;font:13px 'Segoe UI',sans-serif;padding:7px 12px}
+pre{margin:0;padding:12px 16px 16px;color:#cccccc;font-size:14px;line-height:1.35;white-space:pre-wrap;word-break:break-word}
+.cmd{color:#f9f1a5}</style><div class='win' id='term'><div class='bar'>Windows PowerShell</div><pre><span class="cmd">PS C:\Users\worki\Downloads\Mobile Devices\lakshay&gt; .\.venv\Scripts\python.exe -m scripts.simulate_traffic --n 500</span>
+sent 500 requests | round-trip ms p50 35.9  p95 42.7
+{&#x27;APPROVE&#x27;: 0.718, &#x27;REJECT&#x27;: 0.184, &#x27;REVIEW&#x27;: 0.098}
+
+<span class="cmd">PS C:\Users\worki\Downloads\Mobile Devices\lakshay&gt; .\.venv\Scripts\python.exe -m scripts.simulate_traffic --n 500 --downturn</span>
+sent 500 requests | round-trip ms p50 34.6  p95 39.4
+{&#x27;APPROVE&#x27;: 0.572, &#x27;REJECT&#x27;: 0.274, &#x27;REVIEW&#x27;: 0.154}
+</pre></div>

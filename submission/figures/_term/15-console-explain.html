@@ -1,0 +1,20 @@
+<!doctype html><meta charset='utf-8'><style>body{margin:0;background:#0c0c0c;font-family:'Cascadia Mono','Consolas',monospace}
+.win{display:block;width:1300px;background:#0c0c0c}
+.bar{background:#1f1f1f;color:#ccc;font:13px 'Segoe UI',sans-serif;padding:7px 12px}
+pre{margin:0;padding:12px 16px 16px;color:#cccccc;font-size:14px;line-height:1.35;white-space:pre-wrap;word-break:break-word}
+.cmd{color:#f9f1a5}</style><div class='win' id='term'><div class='bar'>Windows PowerShell</div><pre><span class="cmd">PS C:\Users\worki\Downloads\Mobile Devices\lakshay&gt; .\.venv\Scripts\python.exe -m src.explain</span>
+Mean |SHAP| (log-odds):
+person_income                 0.923
+loan_grade                    0.892
+loan_percent_income           0.827
+person_home_ownership         0.687
+loan_intent                   0.558
+loan_int_rate                 0.284
+loan_amnt                     0.251
+person_emp_length             0.170
+person_age                    0.123
+cb_person_cred_hist_length    0.052
+cb_person_default_on_file     0.013
+Base value -1.289 | max additivity error 1.34e-05
+Riskiest test applicant: [{&quot;feature&quot;: &quot;loan_percent_income&quot;, &quot;value&quot;: 0.56, &quot;impact&quot;: 4.712, &quot;text&quot;: &quot;Loan is large compared with income&quot;}, {&quot;feature&quot;: &quot;person_income&quot;, &quot;value&quot;: 14400, &quot;impact&quot;: 4.309, &quot;text&quot;: &quot;Income is low for the amount requested&quot;}, {&quot;feature&quot;: &quot;loan_intent&quot;, &quot;value&quot;: &quot;HOMEIMPROVEMENT&quot;, &quot;impact&quot;: 2.137, &quot;text&quot;: &quot;Purpose of the loan&quot;}]
+</pre></div>

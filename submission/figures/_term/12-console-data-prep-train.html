@@ -1,0 +1,16 @@
+<!doctype html><meta charset='utf-8'><style>body{margin:0;background:#0c0c0c;font-family:'Cascadia Mono','Consolas',monospace}
+.win{display:block;width:1300px;background:#0c0c0c}
+.bar{background:#1f1f1f;color:#ccc;font:13px 'Segoe UI',sans-serif;padding:7px 12px}
+pre{margin:0;padding:12px 16px 16px;color:#cccccc;font-size:14px;line-height:1.35;white-space:pre-wrap;word-break:break-word}
+.cmd{color:#f9f1a5}</style><div class='win' id='term'><div class='bar'>Windows PowerShell</div><pre><span class="cmd">PS C:\Users\worki\Downloads\Mobile Devices\lakshay&gt; .\.venv\Scripts\python.exe -m src.data_prep</span>
+Cleaning: 32581 rows -&gt; 32409 rows
+train: 22686 rows, default rate 0.219
+val: 4861 rows, default rate 0.219
+test: 4862 rows, default rate 0.219
+
+<span class="cmd">PS C:\Users\worki\Downloads\Mobile Devices\lakshay&gt; .\.venv\Scripts\python.exe -m src.train</span>
+logistic_regression  {&#x27;auc&#x27;: 0.8789, &#x27;gini&#x27;: 0.7579, &#x27;pr_auc&#x27;: 0.7262, &#x27;ks&#x27;: 0.6091, &#x27;brier&#x27;: 0.1367, &#x27;train_seconds&#x27;: 0.2}
+random_forest        {&#x27;auc&#x27;: 0.9368, &#x27;gini&#x27;: 0.8736, &#x27;pr_auc&#x27;: 0.8949, &#x27;ks&#x27;: 0.7537, &#x27;brier&#x27;: 0.0587, &#x27;train_seconds&#x27;: 3.0}
+xgboost              {&#x27;auc&#x27;: 0.9511, &#x27;gini&#x27;: 0.9022, &#x27;pr_auc&#x27;: 0.9102, &#x27;ks&#x27;: 0.7724, &#x27;brier&#x27;: 0.0507, &#x27;train_seconds&#x27;: 2.2}
+Best model: xgboost (val AUC 0.9511) saved to models/
+</pre></div>

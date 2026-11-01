@@ -1,0 +1,16 @@
+# Prediction log logs/predictions.db, queried with Python sqlite3 after the kill-switch run
+rows logged: 501
+decision   n  mean_pd  mean_latency_ms
+ APPROVE 359    0.053             21.8
+  REJECT  92    0.933             21.7
+  REVIEW  50    0.267             25.1
+
+  app_id                created_at  age   income grade  amount  rate     pd decision  latency_ms
+b0baa987 2026-11-01T12:50:17+00:00   28  42000.0     C 12000.0 13.50 0.0953   REVIEW       25.01
+312dd7f7 2026-11-01T12:49:19+00:00   26 109000.0     A  6000.0  7.68 0.0249  APPROVE       27.29
+438a64e9 2026-11-01T12:49:19+00:00   34  57000.0     A  2600.0  5.99 0.0097  APPROVE       20.53
+8f89bbbb 2026-11-01T12:49:19+00:00   35 124596.0     B 20000.0 11.49 0.0384  APPROVE       25.87
+2ebfaf47 2026-11-01T12:49:19+00:00   26  60000.0     B 12000.0   NaN 0.0172  APPROVE       25.80
+315fd2a6 2026-11-01T12:49:19+00:00   26  33660.0     A  4500.0  5.99 0.0476  APPROVE       20.55
+9c44c207 2026-11-01T12:49:19+00:00   28 140000.0     C 25000.0 13.11 0.2733   REVIEW       22.84
+d9e88d1c 2026-11-01T12:49:19+00:00   22  36600.0     A  9950.0  7.29 0.0276  APPROVE       23.59

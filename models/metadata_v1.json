@@ -1,7 +1,7 @@
 {
   "model_version": "v1",
   "model_name": "xgboost",
-  "trained_at": "2026-11-01T12:34:15+00:00",
+  "trained_at": "2026-11-01T12:42:07+00:00",
   "features": [
     "person_age",
     "person_income",
@@ -30,7 +30,7 @@
       "pr_auc": 0.8949,
       "ks": 0.7537,
       "brier": 0.0587,
-      "train_seconds": 3.3
+      "train_seconds": 3.0
     },
     "xgboost": {
       "auc": 0.9511,
@@ -38,7 +38,7 @@
       "pr_auc": 0.9102,
       "ks": 0.7724,
       "brier": 0.0507,
-      "train_seconds": 1.2
+      "train_seconds": 2.2
     }
   },
   "train_rows": 22686,

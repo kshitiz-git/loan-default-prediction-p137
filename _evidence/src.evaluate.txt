@@ -1,0 +1,16 @@
+PS> .\.venv\Scripts\python.exe -m src.evaluate
+TEST logistic_regression  {'auc': 0.8614, 'gini': 0.7229, 'pr_auc': 0.6946, 'ks': 0.5884, 'brier': 0.1432}
+TEST random_forest        {'auc': 0.9291, 'gini': 0.8582, 'pr_auc': 0.8792, 'ks': 0.7227, 'brier': 0.0625}
+TEST xgboost              {'auc': 0.9469, 'gini': 0.8938, 'pr_auc': 0.9028, 'ks': 0.7525, 'brier': 0.0529}
+Bands: APPROVE share 0.753, default rate 0.05 | REVIEW share 0.083, default rate 0.261 | REJECT share 0.164, default rate 0.97
+      rule  approval_rate  rule_npa  model_npa  cut_%
+    A only          0.335    0.1372     0.0065   95.3
+       A-B          0.661    0.1618     0.0351   78.3
+       A-C          0.855    0.1775     0.0812   54.3
+       A-D          0.961    0.2279     0.2068    9.2
+All grades          1.000    0.2493     0.2493    0.0
+Approve everyone                           approval 1.000   NPA 0.2493
+Model bands: APPROVE only (PD<0.20)        approval 0.753   NPA 0.0487
+Model bands: APPROVE + REVIEW (PD<0.50)    approval 0.836   NPA 0.0659
+Model curve: 0.30 -> 0.0068 | 0.40 -> 0.0091 | 0.50 -> 0.0177 | 0.60 -> 0.0298 | 0.70 -> 0.0410 | 0.75 -> 0.0473 | 0.80 -> 0.0561 | 0.85 -> 0.0753 | 0.90 -> 0.1348 | 0.95 -> 0.1927 | 1.00 -> 0.2493
+Saved reports/evaluation.json, roc_curves.png, npa_vs_approval.png

@@ -62,6 +62,7 @@ All ten phases were built and checked on 2026-11-01.
 - Results offline: all 11 feature PSIs match the spec exactly (loan_int_rate downturn 1.1231 alert, person_income 0.1875 watch, loan_percent_income 0.1114 watch); model_score_PD 0.0040 → 0.1672 (watch).
   Live: empty log → HTTP 409. Normal traffic: p95 45.6 ms, {APPROVE 0.718, REJECT 0.184, REVIEW 0.098}, alerts []. Downturn: p95 44.9 ms, {APPROVE 0.572, REJECT 0.274, REVIEW 0.154}, alerts ['loan_int_rate', 'decision_mix']. PSI normal → downturn: loan_int_rate 0.012 → 1.178, person_income 0.019 → 0.203, loan_percent_income 0.013 → 0.123, model_score_PD 0.026 → 0.237. approve_baseline 0.75.
 - Matches spec: yes. Same alerts, feature PSIs match; PD-score PSI and decision mix within the thread-effect margin.
+- Latency note (measured 2026-11-01 while recording the screenshots): one 500-request normal run made while four document-building processes and a browser were using the CPU gave p95 136.5 ms (p50 44.0 ms), above the 100 ms target. Repeated on the less loaded machine: 42.7 ms (normal) and 39.4 ms (downturn). The target holds when the API has the CPU to itself; a production deployment would run the API on its own machine or container.
 - In plain words: PSI measures how far the recent applicants' distribution has moved from the training data. A simulated downturn (incomes -20%, rates +2 points) pushes the interest-rate PSI far past the 0.25 alert line and drops approvals by more than 10 points, so both alerts fire, while normal traffic raises none.
 
 ## Phase 9 — Automated tests — 2026-11-01

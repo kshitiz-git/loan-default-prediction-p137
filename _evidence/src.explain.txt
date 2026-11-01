@@ -1,0 +1,15 @@
+PS> .\.venv\Scripts\python.exe -m src.explain
+Mean |SHAP| (log-odds):
+person_income                 0.923
+loan_grade                    0.892
+loan_percent_income           0.827
+person_home_ownership         0.687
+loan_intent                   0.558
+loan_int_rate                 0.284
+loan_amnt                     0.251
+person_emp_length             0.170
+person_age                    0.123
+cb_person_cred_hist_length    0.052
+cb_person_default_on_file     0.013
+Base value -1.289 | max additivity error 1.34e-05
+Riskiest test applicant: [{"feature": "loan_percent_income", "value": 0.56, "impact": 4.712, "text": "Loan is large compared with income"}, {"feature": "person_income", "value": 14400, "impact": 4.309, "text": "Income is low for the amount requested"}, {"feature": "loan_intent", "value": "HOMEIMPROVEMENT", "impact": 2.137, "text": "Purpose of the loan"}]

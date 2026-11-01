@@ -1,0 +1,3 @@
+PS> .\.venv\Scripts\python.exe -m scripts.simulate_traffic --n 500
+sent 500 requests | round-trip ms p50 35.9  p95 42.7
+{'APPROVE': 0.718, 'REJECT': 0.184, 'REVIEW': 0.098}

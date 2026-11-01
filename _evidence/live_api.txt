@@ -1,0 +1,228 @@
+### GET /health
+{
+    "status":  "ok",
+    "model_version":  "v1",
+    "kill_switch":  false
+}
+### POST good
+{
+    "application_id":  "8b90189a-e9e8-4455-9a09-9bcd95cefeeb",
+    "probability_of_default":  0.0953,
+    "risk_band":  "low",
+    "decision":  "APPROVE",
+    "top_reasons":  [
+                        {
+                            "feature":  "person_home_ownership",
+                            "value":  "RENT",
+                            "impact":  0.267,
+                            "text":  "Home ownership status"
+                        },
+                        {
+                            "feature":  "person_income",
+                            "value":  42000.0,
+                            "impact":  0.099,
+                            "text":  "Income is low for the amount requested"
+                        },
+                        {
+                            "feature":  "loan_intent",
+                            "value":  "MEDICAL",
+                            "impact":  0.051,
+                            "text":  "Purpose of the loan"
+                        }
+                    ],
+    "model_version":  "v1",
+    "latency_ms":  34.19
+}
+### POST risky
+{
+    "application_id":  "3cb3b37d-2ed4-491a-aa7a-721483a51c20",
+    "probability_of_default":  1.0,
+    "risk_band":  "high",
+    "decision":  "REJECT",
+    "top_reasons":  [
+                        {
+                            "feature":  "loan_percent_income",
+                            "value":  0.5,
+                            "impact":  4.2,
+                            "text":  "Loan is large compared with income"
+                        },
+                        {
+                            "feature":  "person_income",
+                            "value":  18000.0,
+                            "impact":  3.686,
+                            "text":  "Income is low for the amount requested"
+                        },
+                        {
+                            "feature":  "person_home_ownership",
+                            "value":  "RENT",
+                            "impact":  1.625,
+                            "text":  "Home ownership status"
+                        }
+                    ],
+    "model_version":  "v1",
+    "latency_ms":  24.01
+}
+### POST age 7
+HTTP 422
+### GET /model/info
+{"model_version":"v1","model_name":"xgboost","trained_at":"2026-11-01T12:34:15+00:00","features":["person_age","person_income","person_emp_length","loan_amnt","loan_int_rate","loan_percent_income","cb_person_cred_hist_length","person_home_ownership","loan_intent","loan_grade","cb_person_default_on_file"],"validation_metrics":{"logistic_regression":{"auc":0.8789,"gini":0.7579,"pr_auc":0.7262,"ks":0.6091,"brier":0.1367,"train_seconds":0.2},"random_forest":{"auc":0.9368,"gini":0.8736,"pr_auc":0.8949,"ks":0.7537,"brier":0.0587,"train_seconds":3.3},"xgboost":{"auc":0.9511,"gini":0.9022,"pr_auc":0.9102,"ks":0.7724,"brier":0.0507,"train_seconds":1.2}},"train_rows":22686,"train_default_rate":0.2187,"policy":{"approve_below":0.2,"reject_from":0.5}}
+### drift with empty log
+HTTP 409
+### normal traffic
+sent 500 requests | round-trip ms p50 35.3  p95 45.6
+{'APPROVE': 0.718, 'REJECT': 0.184, 'REVIEW': 0.098}
+### drift after normal
+{
+    "window_size":  500,
+    "alerts":  [
+
+               ],
+    "decision_mix":  {
+                         "APPROVE":  0.718,
+                         "REJECT":  0.184,
+                         "REVIEW":  0.098
+                     },
+    "approve_baseline":  0.75,
+    "features":  [
+                     {
+                         "feature":  "person_age",
+                         "psi":  0.0073,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "person_income",
+                         "psi":  0.019,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "person_emp_length",
+                         "psi":  0.0064,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_amnt",
+                         "psi":  0.0049,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_int_rate",
+                         "psi":  0.0122,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_percent_income",
+                         "psi":  0.0133,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "cb_person_cred_hist_length",
+                         "psi":  0.0031,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "person_home_ownership",
+                         "psi":  0.0088,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_intent",
+                         "psi":  0.0188,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_grade",
+                         "psi":  0.0104,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "cb_person_default_on_file",
+                         "psi":  0.0001,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "model_score_PD",
+                         "psi":  0.0258,
+                         "status":  "stable"
+                     }
+                 ]
+}
+### downturn traffic
+sent 500 requests | round-trip ms p50 35.1  p95 44.9
+{'APPROVE': 0.572, 'REJECT': 0.274, 'REVIEW': 0.154}
+### drift after downturn
+{
+    "window_size":  500,
+    "alerts":  [
+                   "loan_int_rate",
+                   "decision_mix"
+               ],
+    "decision_mix":  {
+                         "APPROVE":  0.572,
+                         "REJECT":  0.274,
+                         "REVIEW":  0.154
+                     },
+    "approve_baseline":  0.75,
+    "features":  [
+                     {
+                         "feature":  "person_age",
+                         "psi":  0.0073,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "person_income",
+                         "psi":  0.2033,
+                         "status":  "watch"
+                     },
+                     {
+                         "feature":  "person_emp_length",
+                         "psi":  0.0064,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_amnt",
+                         "psi":  0.0049,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_int_rate",
+                         "psi":  1.1777,
+                         "status":  "alert"
+                     },
+                     {
+                         "feature":  "loan_percent_income",
+                         "psi":  0.1234,
+                         "status":  "watch"
+                     },
+                     {
+                         "feature":  "cb_person_cred_hist_length",
+                         "psi":  0.0031,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "person_home_ownership",
+                         "psi":  0.0088,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_intent",
+                         "psi":  0.0188,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "loan_grade",
+                         "psi":  0.0104,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "cb_person_default_on_file",
+                         "psi":  0.0001,
+                         "status":  "stable"
+                     },
+                     {
+                         "feature":  "model_score_PD",
+                         "psi":  0.2371,
+                         "status":  "watch"
+                     }
+                 ]
+}
+### stopped
