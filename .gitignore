@@ -7,3 +7,6 @@ logs/
 models/candidates/
 reports/*.html
 *.log
+.claude/
+graphify-out/
+submission/build/_crops/
