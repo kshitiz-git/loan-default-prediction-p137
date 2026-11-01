@@ -946,7 +946,7 @@ def verify():
     print("leftover markdown hits:", len(hits))
     for h in hits:
         print("   HIT", h)
-    bad = [(s, m.group(0), t[:80]) for s, t in texts for m in [BANNED.search(t)] if m]
+    bad = [(s, m.group(0), t[:80]) for s, t in texts for m in [BANNED.search(t.replace(REPO_URL, ""))] if m]  # own repo URL allowed
     print("banned / leftover words hits:", len(bad))
     for h in bad:
         print("   HIT", h)

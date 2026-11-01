@@ -1159,7 +1159,8 @@ def verify(template: Path, out: Path):
     for phrase in ("Describe", "e.g.", "Insert", "Placeholder", "Guidance", "XXXXXX", "Student Name", "Template", "DD-MM-YYYY"):
         n = len(re.findall(re.escape(phrase), full))
         print(f"  phrase {phrase!r}: {n}")
-    bad = {w: full.count(w) for w in FORBIDDEN if w in full}
+    scan = full.replace(IDN["repo_url"], "")   # the learner's own repo URL is allowed; other reference leftovers are not
+    bad = {w: scan.count(w) for w in FORBIDDEN if w in scan}
     print(f"  forbidden strings {FORBIDDEN}: {bad or 'none'}")
     brackets = sorted(set(re.findall(r"\[[A-Z][A-Z \-/,]+\]", full)))
     print(f"  identity placeholders still in the text (learner has not supplied them): {brackets or 'none'}")

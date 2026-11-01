@@ -1,12 +1,10 @@
+# Everything in this project is committed (data, models, logs, reports, submission files).
+# Only machine-specific or tool-cache folders are left out:
 .venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-data/
-logs/
-models/candidates/
-reports/*.html
-*.log
+.pytest_cache/
 .claude/
 graphify-out/
-submission/build/_crops/
+.playwright-mcp/

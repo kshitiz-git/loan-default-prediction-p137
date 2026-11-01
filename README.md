@@ -2,6 +2,8 @@
 
 A machine-learning system that predicts each loan applicant's probability of default (PD) at application time and turns it into **APPROVE**, **REVIEW** or **REJECT** with up to three plain-language reasons (SHAP). A FastAPI service scores applications in real time, logs every prediction to SQLite, and raises drift alerts (PSI) when new applicants stop looking like the training data.
 
+**Start with [`COMMENTS.md`](COMMENTS.md)**: where every file is, the results table, and every difference from the specification. The submission files are in [`submission/final/UPLOAD/`](submission/final/UPLOAD/).
+
 Dataset: *Credit Risk Dataset* by laotse on Kaggle — https://www.kaggle.com/datasets/laotse/credit-risk-dataset (32,581 loans, 12 columns, 21.8% defaulted).
 
 ## 1. Results (test set of 4,862 loans, built 2026-11-01)

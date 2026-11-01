@@ -23,6 +23,6 @@
   "difficulty": "Intermediate",
   "duration": "4 Weeks",
   "format": "Individual Project",
-  "repo_url": "[GITHUB REPOSITORY URL]",
+  "repo_url": "https://github.com/kshitiz-git/loan-default-prediction-p137",
   "dataset_source": "https://www.kaggle.com/datasets/laotse/credit-risk-dataset"
 }
